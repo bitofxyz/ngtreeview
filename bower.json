@@ -1,0 +1,19 @@
+{
+  "author": {
+    "name": "https://github.com/GYF1"
+  },
+  "name": "ngtreeview",
+  "version": "0.0.1",
+  "main": "angular.treeview.js",
+  "ignore": [
+    "/.idea",
+    "demo.html",
+    "demo.css",
+    "demo.js",
+    "doc",
+    "**/.*",
+    "node_modules",
+    "components",
+    "bower_components"
+  ]
+}
