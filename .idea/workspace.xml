@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5b73cbf-fb8e-4d6c-83fe-ab1f05932cb6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular.treeview.js" afterPath="$PROJECT_DIR$/angular.treeview.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ngtreeview.iml" afterPath="$PROJECT_DIR$/.idea/ngtreeview.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ngtreeview.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -158,16 +154,16 @@
       <created>1416546539723</created>
       <option name="number" value="Default" />
       <updated>1416546539723</updated>
-      <workItem from="1437260883586" duration="810000" />
+      <workItem from="1437260883586" duration="996000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="810000" />
+    <option name="totallyTimeSpent" value="996000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
