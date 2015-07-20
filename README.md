@@ -109,7 +109,7 @@ $scope.$watchCollection( 'abc.checkedNodes', function( newObj, oldObj ) {
 [jsFiddle - http://jsfiddle.net/eu81273/b9Pnw/](http://jsfiddle.net/eu81273/b9Pnw/)
 
 #### Multiple treeview with checkbox example
-[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/jsfiddle03.png)](http://jsfiddle.net/eu81273/b9Pnw/)
+[![ScreenShot](https://raw.githubusercontent.com/JeremyMarshall/ngtreeview/master/img/jsfiddle03.png)](http://jsfiddle.net/jezza/b9Pnw/152/)
 
 [jsFiddle - http://jsfiddle.net/jezza/b9Pnw/152/](http://jsfiddle.net/jezza/b9Pnw/152/)
 
