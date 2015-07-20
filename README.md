@@ -82,6 +82,20 @@ $scope.$watch( 'abc.currentNode', function( newObj, oldObj ) {
 }, false);
 ```
 
+## Checked
+
+The checked nodes are saved to $scope."TREE ID".checkedtNodes. By using $watchCollection, the controller can recognize the checked nodes.
+
+
+```javascript
+$scope.$watchCollection( 'abc.checkedNodes', function( newObj, oldObj ) {
+    if( $scope.abc && angular.isObject($scope.abc.currentNode) ) {
+        console.log( 'Nodes Checked!!' );
+        console.log( $scope.abc.checkedNodes );
+    }
+});
+```
+
 ## Examples
 
 #### Basic example
