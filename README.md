@@ -32,6 +32,7 @@ Attributes of angular treeview are below.
 - node-id : each node's id.
 - node-label : each node's label.
 - node-children: each node's children.
+- data-checkbox-support: true|false add checkboxes to tree
 
 Here is a simple example.
 
@@ -92,11 +93,18 @@ $scope.$watch( 'abc.currentNode', function( newObj, oldObj ) {
 
 [jsFiddle - http://jsfiddle.net/eu81273/b9Pnw/](http://jsfiddle.net/eu81273/b9Pnw/)
 
+#### Multiple treeview with checkbox example
+[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/jsfiddle03.png)](http://jsfiddle.net/eu81273/b9Pnw/)
+
+[jsFiddle - http://jsfiddle.net/jezza/b9Pnw/152/](http://jsfiddle.net/jezza/b9Pnw/152/)
+
 ## Browser Compatibility
 
 Same with AngularJS. Safari, Chrome, Firefox, Opera, IE8, IE9 and mobile browsers (Android, Chrome Mobile, iOS Safari).
 
 ## Changelogs
+#### version 0.1.7
+- Added optional checkboxes
 
 #### version 0.1.6
 - Fixed the bug that 'null' string appears before each 'div' generated. (Thanks to Iaac)
