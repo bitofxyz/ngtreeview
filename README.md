@@ -32,7 +32,7 @@ Attributes of angular treeview are below.
 - node-id : each node's id.
 - node-label : each node's label.
 - node-children: each node's children.
-- data-checkbox-support: true|false add checkboxes to tree
+- checkbox-support: true|false add checkboxes to tree
 
 Here is a simple example.
 
@@ -44,7 +44,8 @@ Here is a simple example.
 	data-tree-model="treedata"
 	data-node-id="id"
 	data-node-label="label"
-	data-node-children="children" >
+	data-node-children="children" 
+	data-checkbox-support="true">
 </div>
 ```
 
