@@ -30,7 +30,7 @@
 			link: function ( scope, element, attrs ) {
 				//tree id
 				var treeId = attrs.treeId;
-			
+
 				//tree model
 				var treeModel = attrs.treeModel;
 
@@ -40,8 +40,18 @@
 				//node label
 				var nodeLabel = attrs.nodeLabel || 'label';
 
+        //node checked
+        var nodeChecked = attrs.nodeChecked || 'checked';
+
 				//children
 				var nodeChildren = attrs.nodeChildren || 'children';
+
+        var checkboxSupport = attrs.checkboxSupport || 'false';
+
+        var checkboxTemplate = '';
+        if(checkboxSupport != 'false'){
+          checkboxTemplate = '<input type="checkbox" ng-model="node.' + nodeChecked + '" ng-change="' + treeId + '.selectNodeCbx(node)"/> ';
+        }
 
 				//tree template
 				var template =
@@ -50,8 +60,8 @@
 							'<i class="collapsed" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
 							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
 							'<i class="normal" data-ng-hide="node.' + nodeChildren + '.length"></i> ' +
-							'<span data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' +
-							'<div data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' +
+							'<span data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node)">' + checkboxTemplate + '{{node.' + nodeLabel + '}}</span>' +
+							'<div data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + ' data-checkbox-support=' + checkboxSupport + '></div>' +
 						'</li>' +
 					'</ul>';
 
@@ -61,9 +71,14 @@
 
 					//root node
 					if( attrs.angularTreeview ) {
-					
+
 						//create tree object if not exists
 						scope[treeId] = scope[treeId] || {};
+
+            //are we adding checkboxes?
+            if(checkboxSupport != 'false') {
+              scope[treeId].checkedNodes = scope[treeId].checkedNodes || [];
+            }
 
 						//if node head clicks,
 						scope[treeId].selectNodeHead = scope[treeId].selectNodeHead || function( selectedNode ){
@@ -86,6 +101,34 @@
 							//set currentNode
 							scope[treeId].currentNode = selectedNode;
 						};
+
+            //if node cbx clicks,
+            scope[treeId].selectNodeCbx = scope[treeId].selectNodeCbx || function( selectedNode ){
+
+                if(checkboxSupport == 'false')
+                  return
+
+                var isChecked = selectedNode[nodeChecked];
+
+                if(isChecked && scope[treeId].checkedNodes.indexOf(selectedNode[nodeId]) == -1) {
+                  scope[treeId].checkedNodes.push(selectedNode[nodeId]);
+                }else if(!isChecked){
+                  var index = scope[treeId].checkedNodes.indexOf(selectedNode[nodeId]);
+                  if(index != -1){
+                    scope[treeId].checkedNodes.splice(index, 1);
+                  }
+                }
+
+                //look through the children and set them to this
+                var children = selectedNode.children;
+
+                for(var child in children){
+                  children[child][nodeChecked] = isChecked;
+                  //recurse child trees
+                  scope[treeId].selectNodeCbx(children[child]);
+                }
+              };
+
 					}
 
 					//Rendering template.

@@ -32,6 +32,7 @@ Attributes of angular treeview are below.
 - node-id : each node's id.
 - node-label : each node's label.
 - node-children: each node's children.
+- checkbox-support: true|false add checkboxes to tree
 
 Here is a simple example.
 
@@ -43,7 +44,8 @@ Here is a simple example.
 	data-tree-model="treedata"
 	data-node-id="id"
 	data-node-label="label"
-	data-node-children="children" >
+	data-node-children="children" 
+	data-checkbox-support="true">
 </div>
 ```
 
@@ -80,6 +82,20 @@ $scope.$watch( 'abc.currentNode', function( newObj, oldObj ) {
 }, false);
 ```
 
+## Checked
+
+The checked nodes are saved to $scope."TREE ID".checkedtNodes. By using $watchCollection, the controller can recognize the checked nodes.
+
+
+```javascript
+$scope.$watchCollection( 'abc.checkedNodes', function( newObj, oldObj ) {
+    if( $scope.abc && angular.isObject($scope.abc.currentNode) ) {
+        console.log( 'Nodes Checked!!' );
+        console.log( $scope.abc.checkedNodes );
+    }
+});
+```
+
 ## Examples
 
 #### Basic example
@@ -92,11 +108,18 @@ $scope.$watch( 'abc.currentNode', function( newObj, oldObj ) {
 
 [jsFiddle - http://jsfiddle.net/eu81273/b9Pnw/](http://jsfiddle.net/eu81273/b9Pnw/)
 
+#### Multiple treeview with checkbox example
+[![ScreenShot](https://raw.githubusercontent.com/JeremyMarshall/ngtreeview/master/img/jsfiddle03.png)](http://jsfiddle.net/jezza/b9Pnw/152/)
+
+[jsFiddle - http://jsfiddle.net/jezza/b9Pnw/152/](http://jsfiddle.net/jezza/b9Pnw/152/)
+
 ## Browser Compatibility
 
 Same with AngularJS. Safari, Chrome, Firefox, Opera, IE8, IE9 and mobile browsers (Android, Chrome Mobile, iOS Safari).
 
 ## Changelogs
+#### version 0.1.7
+- Added optional checkboxes
 
 #### version 0.1.6
 - Fixed the bug that 'null' string appears before each 'div' generated. (Thanks to Iaac)
