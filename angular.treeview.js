@@ -120,13 +120,14 @@
                 }
 
                 //look through the children and set them to this
-                var children = selectedNode.children;
+                // var children = selectedNode.children;
+                var children = selectedNode[nodeChildren]; // fix children property name
 
-                for(var child in children){
-                  children[child][nodeChecked] = isChecked;
-                  //recurse child trees
-                  scope[treeId].selectNodeCbx(children[child]);
-                }
+		$.each(children, function(idx, child) {
+			child[nodeChecked] = isChecked;
+			//recurse child trees
+			scope[treeId].selectNodeCbx(child);
+		})
               };
 
 					}
